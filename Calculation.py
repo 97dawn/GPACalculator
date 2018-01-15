@@ -13,6 +13,9 @@ class Calculation:
         gpaLabel.grid(row=0, column=0)
         gpa = Entry(width=10);
         gpa.grid(row=0, column=1)
+        
+        
+        
         outof = Label(font=('arial',10,'bold'), text=" / 4.0",bd=10,anchor='w')
         outof.grid(row=0, column=2)
         

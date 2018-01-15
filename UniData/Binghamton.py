@@ -1,7 +1,7 @@
 '''
 Created on Jan 15, 2018
 
-@author: user
+@author: Doeun Kim
 '''
 
 class Binghamton(object):
@@ -10,8 +10,8 @@ class Binghamton(object):
     '''
 
 
-    def __init__(self, params):
-        '''
-        Constructor
-        '''
+    def __init__(self):
+        letterGrades = ['A','A-','B+','B','B-','C+','C','C-','D','F']
+        grades=[4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.0,0.0]
+        return {'LetterGrades':letterGrades,'Grades':grades}
         
