@@ -11,7 +11,7 @@ from Calculation import Calculation
 
 class MyFrame(Frame):
     
-    def submit(self,master):
+    def submit(self, e):
         uni = self.selectUni.get()
         num = self.numOfCourse.get()
         
@@ -22,10 +22,11 @@ class MyFrame(Frame):
         elif uni == "" and num == "":
             messagebox.showerror("Error Message", "Please select your school and type the number of courses you took")
         else:
-            calculate = Calculation(uni, num)
-            
+            self.master.quit()
+            Calculation(uni, num)
        
     def __init__(self,master):
+        self.master=master
         # Select campus
         self.selectUniLabel = Label(font=('arial',10,'bold'), text="Select Your School",bd=10)
         self.selectUniLabel.grid(row=0, column = 0)
