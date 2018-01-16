@@ -9,11 +9,13 @@ from Albany import Albany
 from Binghamton import Binghamton
 from StonyBrook import StonyBrook
 
-class Calculation:
-      
-    def __init__(self,uni,num):
-        root = Tk()
-        root.title('SUNY GPA Calculator')
+class Calculation(Frame):
+    def clear(self,root):
+        list = root.grid_slaves()
+        for l in list:
+            l.destroy()
+    def __init__(self,root,uni,num):
+        self.clear(root)
         gpaLabel = Label(root,font=('arial',10,'bold'), text="GPA",bd=10,anchor='w')
         gpaLabel.grid(row=0, column=0)
         gpa = Entry(root,width=10);
@@ -40,4 +42,3 @@ class Calculation:
             
         calculate = Button(root,text="Calculate")
         calculate.grid(row=int(num)+1,column=1,padx=10, pady=10)
-

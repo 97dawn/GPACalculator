@@ -11,7 +11,7 @@ from Calculation import Calculation
 
 class MyFrame(Frame):
     
-    def submit(self, e):
+    def submit(self, master):
         uni = self.selectUni.get()
         num = self.numOfCourse.get()
         
@@ -22,26 +22,25 @@ class MyFrame(Frame):
         elif uni == "" and num == "":
             messagebox.showerror("Error Message", "Please select your school and type the number of courses you took")
         else:
-            self.master.quit()
-            Calculation(uni, num)
+            Calculation(self.master,uni, num)
        
     def __init__(self,master):
         self.master=master
         # Select campus
-        self.selectUniLabel = Label(font=('arial',10,'bold'), text="Select Your School",bd=10)
+        self.selectUniLabel = Label(master,font=('arial',10,'bold'), text="Select Your School",bd=10)
         self.selectUniLabel.grid(row=0, column = 0)
-        self.selectUni = Combobox()
+        self.selectUni = Combobox(master)
         self.selectUni['values'] = ['Binghamton University','Stony Brook University','University at Albany']
         self.selectUni.grid(row=0, column=1)
         
         # Type the number of courses that the user took
-        self.numOfCourseLabel = Label(font=('arial',10,'bold'), text="Number of Courses",bd=10)
+        self.numOfCourseLabel = Label(master, font=('arial',10,'bold'), text="Number of Courses",bd=10)
         self.numOfCourseLabel.grid(row=1,column=0)
-        self.numOfCourse = Entry()
+        self.numOfCourse = Entry(master)
         self.numOfCourse.grid(row=1, column=1)
         
         # Submit button
-        self.ok = Button(text="ok", bg='white')
+        self.ok = Button(master, text="ok", bg='white')
         self.ok.grid(row=2, column=1)
         self.ok.bind("<Button-1>", self.submit)
     
